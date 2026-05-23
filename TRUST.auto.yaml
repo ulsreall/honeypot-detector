@@ -1,0 +1,13 @@
+trust:
+  score: 85
+  flags:
+    - no_shell_execution
+    - no_fund_movement
+    - no_remote_install
+    - open_source
+    - read_only_api
+  notes:
+    - Uses public GoPlus Security API (no auth required)
+    - Read-only operations (no transactions)
+    - No private key handling
+    - No fund movement capabilities
