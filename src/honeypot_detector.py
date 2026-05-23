@@ -20,7 +20,7 @@ from typing import Optional
 import requests
 
 # GoPlus Security API
-GOPLUS_API = "https://api.gopluslabs.io/api/v1/token_security"
+GOPLUS_API = "https://api.gopluslabs.io/api/v1/token_security/{chain_id}"
 
 # Chain name to ID mapping
 CHAIN_IDS = {
@@ -107,10 +107,10 @@ class HoneypotDetector:
 
         # Query GoPlus API
         try:
+            url = GOPLUS_API.format(chain_id=chain_id)
             resp = self.session.get(
-                GOPLUS_API,
+                url,
                 params={
-                    "chain_id": chain_id,
                     "contract_addresses": token_address.lower(),
                 },
                 timeout=self.timeout,
